@@ -27,10 +27,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
 
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
+
       - name: Run tests with coverage
         run: |
-          pytest --cov=core --cov-report=xml --cov-fail-under=100
-
+          pytest --cov=core --cov-report=xml --cov-fail-under=100 tests/
+          
 
   lint:
     runs-on: ubuntu-latest

@@ -1,0 +1,4 @@
+[run]
+source = core
+include = core/*
+omit = */__init__.py
